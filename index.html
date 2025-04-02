@@ -1,14 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <title>CVC FTC</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                overflow: hidden;
+                background-position: center;
+                color: #333;
+            }
+            a#menu-button {
+                font-family: inherit;
+                font-weight: 500;
+            }
+            a#menu-button:hover {
+                text-decoration: underline;
+            }
+            h1 {
+                font-family: inherit;
+                font-weight: 700;
+            }
+            p {
+                font-family: inherit;
+                font-weight: 400;
+            }
+            footer {
+                font-family: inherit;
+                font-weight: 300;
+            }
+            #header {
+                z-index: 10;
+            }
+            #mainContent {
+                z-index: 1;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body class="w-full h-screen bg-cover bg-center" style="background-image: url('img/cover.png');">
+        <header id="header" class="fixed top-0 left-0 w-full backdrop-blur-md shadow-md flex items-center justify-between p-4 bg-opacity-20">
+                <a href="#"><div class="text-lg font-semibold text-blue-600">CVC FTC</div></a>
+                
+                <nav class="space-x-4">
+                        <a href="index.html" id="menu-button" class="text-gray-700">Home</a>
+                        <a href="about-us.html" id="menu-button" class="text-gray-700">About Us</a>
+                        <a href="contact.html" id="menu-button" class="text-gray-700">Contact</a>
+                        <a href="gallery.html" id="menu-button" class="text-gray-700">Gallery</a>
+                </nav>
+            
+        </header>
+		
+        <div id="mainContent" class="flex items-center justify-center h-screen text-black text-center">
+                <div>
+                        <h1 class="text-6xl">CVC Robotics</h1>
+                        <p class="mt-4 text-lg">FirstTechChallenge</p>
+                </div>
+        </div>
+      	
+      	<footer id="footer" class="p-1 fixed bottom-2 right-2 left-2 bg-gray-400 text-white text-center rounded-xl opacity-60">
+         		&copy; 2025 | CVC Robotics 
+      	</footer>
+    </body>
+    <script>
+        window.onload = function () {
+            const mainContent = document.getElementById('mainContent');
 
-<meta charset="UTF-8">
-<title>CVC-FTC Website</title>
-<link rel="stylesheet" href="main.css">
+            mainContent.style.opacity = 0;
+            mainContent.style.transform = 'translateY(50px)';
 
-<body>
-<body style="background-color:#143da6;">
-<h1 style="color:#f5e050;">Hi, we are UK FTC-045</h1>
-<h2 style="color:#f5e050;">This is our website, we hope to have it looking better and functioning soon...</h2> 
-</body>
-	
+            setTimeout(() => {
+            mainContent.style.transition = 'opacity 1s, transform 1s';
+            mainContent.style.opacity = 1;
+            mainContent.style.transform = 'translateY(0)';
+            }, 100);
+        };
+    </script>
 </html>
