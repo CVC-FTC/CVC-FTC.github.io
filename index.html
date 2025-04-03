@@ -35,11 +35,11 @@
                 font-weight: 300;
             }
             #header {
-                z-index: 10;
+                z-index: 10; /* Ensure the header stays on top */
             }
             #mainContent {
-                z-index: 1;
-                position: relative;
+                z-index: 1; /* Ensure main content stays below the header */
+                position: relative; /* Add position to enable z-index */
             }
         </style>
     </head>
@@ -56,10 +56,10 @@
             
         </header>
 		
-        <div id="mainContent" class="flex items-center justify-center h-screen text-black text-center">
+        <div id="mainContent" class="flex items-center justify-center h-screen text-white text-center">
                 <div>
-                        <h1 class="text-6xl">CVC Robotics</h1>
-                        <p class="mt-4 text-lg">FirstTechChallenge</p>
+                        <h1 class="text-6xl">CVC FTC</h1>
+                        <p class="mt-4 text-lg">Robotics Club</p>
                 </div>
         </div>
       	
