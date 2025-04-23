@@ -35,7 +35,7 @@
             }
         </style>
     </head>
-    <body class="w-full h-screen bg-cover bg-center">
+    <body class="w-full bg-cover bg-center">
         <header class="fixed top-0 left-0 w-full backdrop-blur-md shadow-md flex items-center justify-between p-4 bg-opacity-20 z-[9999]">
             <a href="#"><div class="text-lg font-semibold text-blue-600"><img src="img/logo.png" class="rounded w-10 h-10"></div></a>
             
@@ -45,45 +45,48 @@
                 <a href="contact.html" id="menu-button" class="text-gray-700">Contact</a>
                 <a href="gallery.html" id="menu-button" class="text-gray-700">Gallery</a>
             </nav>
-            
         </header>
 
-        <main id="mainContent">
-            <div class="flex flex-col items-center justify-center h-screen text-white text-center space-y-16">
-                <div class="space-y-4 mt-[200px] px-4"></div>
-                    <h1 class="text-6xl text-black text-left ml-10">Gallery</h1>
-                    <hr class="border-green-500 border-t-4 w-1/2 ml-10">
-                    <p class="text-lg text-black leading-relaxed ml-10">
-                        This will be where we have our photo gallery<br><br>
-                    </p>
-                    <br><br>
+        <main id="mainContent" class="pt-[160px] pb-20 flex flex-col items-center text-center px-4">
+            <h1 class="text-6xl text-black mb-4">Gallery</h1>
+            <hr class="border-green-500 border-t-4 w-1/2 mb-6">
+            
+            <div class="m-6 p-4 bg-white rounded-3xl shadow-xl overflow-hidden w-full max-w-6xl">
+                <div class="grid grid-cols-4 auto-rows-[200px] gap-4 rounded-2xl">
+                    <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl">
+                        <img src="img1.jpg" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                    </div>
+                    <div class="col-span-2 row-span-1 overflow-hidden rounded-2xl">
+                        <img src="img2.jpg" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                    </div>
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-2xl">
+                        <img src="img3.jpg" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                    </div>
+                    <div class="col-span-1 row-span-2 overflow-hidden rounded-2xl">
+                        <img src="img4.jpg" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                    </div>
+                    <div class="col-span-2 row-span-1 overflow-hidden rounded-2xl">
+                        <img src="img5.jpg" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                    </div>
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-2xl">
+                        <img src="img6.jpg" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                    </div>
                 </div>
             </div>
         </main>
+
+        <script>
+            window.onload = function () {
+                const mainContent = document.getElementById('mainContent');
+                mainContent.style.opacity = 0;
+                mainContent.style.transform = 'translateY(50px)';
+
+                setTimeout(() => {
+                    mainContent.style.transition = 'opacity 1s, transform 1s';
+                    mainContent.style.opacity = 1;
+                    mainContent.style.transform = 'translateY(0)';
+                }, 100);
+            };
+        </script>
     </body>
-    <script>
-        window.onload = function () {
-            const mainContent = document.getElementById('mainContent');
-
-            mainContent.addEventListener('transitionend', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                setTimeout(() => {}, 5000);
-            });
-
-            mainContent.style.opacity = 0;
-            mainContent.style.transform = 'translateY(50px)';
-
-            setTimeout(() => {
-            mainContent.style.transition = 'opacity 1s, transform 1s';
-            mainContent.style.opacity = 1;
-            mainContent.style.transform = 'translateY(0)';
-            }, 100);
-
-            mainContent.addEventListener('transitionend', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                setTimeout(() => {}, 5000);
-            });
-            
-        };
-    </script>
 </html>
