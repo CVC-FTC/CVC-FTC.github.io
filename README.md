@@ -8,7 +8,7 @@ The repo for the CVC-FTC Robotics Club website
 
 * 🏠︎ **Homepage** - The homepage with a simple fade and animation; with a big [cover.jpeg](img/cover.jpeg) bg-image
 * ℹ️ **About Us** - Page with a few paragraghs explaining who CVC-FTC Robotics Club are
-* ☎️ **Contact** - A simple form page for contacting us. The destination email will soon be changed to a new club email
+* ☎️ **Contact** - A simple page with "mailto:" button
 * 🏞️ **Gallery** - A page with a couple of photo frames with images of Bob the robot
 
 ---
