@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Us</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                background-position: center;
+                color: #333;
+            }
+            a#menu-button {
+                font-family: inherit;
+                font-weight: 500;
+            }
+            a#menu-button:hover {
+                text-decoration: underline;
+            }
+            h1 {
+                font-family: inherit;
+                font-weight: 700;
+            }
+            p {
+                font-family: inherit;
+                font-weight: 400;
+            }
+            footer {
+                font-family: inherit;
+                font-weight: 300;
+            }
+        </style>
+    </head>
+    <body class="w-full h-screen bg-cover bg-center">
+        <header class="fixed top-0 left-0 w-full backdrop-blur-md shadow-md flex items-center justify-between p-4 bg-opacity-20 z-[9999]">
+            <a href="#"><div class="text-lg font-semibold text-blue-600"><img src="img/logo.png" class="rounded w-10 h-10"></div></a>
+            
+            <nav class="space-x-4">
+                <a href="index.html" id="menu-button" class="text-gray-700">Home</a>
+                <a href="about-us.html" id="menu-button" class="text-gray-700">About Us</a>
+                <a href="contact.html" id="menu-button" class="text-gray-700">Contact</a>
+                <a href="gallery.html" id="menu-button" class="text-gray-700">Gallery</a>
+                <a href="blog.html" id="menu-button" class="text-gray-700">Blog/Memes</a>
+            </nav>
+            
+        </header>
+
+        <main id="mainContent">
+            <div class="flex flex-col items-center justify-center h-screen text-white text-center space-y-16">
+                <div class="space-y-4 mt-[200px] px-4"></div>
+                    <br><br>
+                    <h1 class="text-6xl text-black text-left ml-10">About Us</h1>
+                    <hr class="border-green-500 border-t-4 w-1/2 ml-10">
+                    <p class="text-lg text-black leading-relaxed ml-10">
+                        We are a robotics club based at Comberton village College in Cambridgeshire, UK<br><br>
+																			Since 2018, we have competed in the First Tech Challenge in the UK, with various degrees of success. <br><br>
+																			In the 2019/20 season we won the inspire award, which would have allowed us to advance to nationals, however, COVID had other ideas.<br><br>
+																			This season(24/25), we have advanced to the Nationals with a Wild Card. Where we will Compete in the Copperbox arena in the Olympic Park.<br><br>
+                    </p>
+                    <br><br>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script>
+        window.onload = function () {
+            const mainContent = document.getElementById('mainContent');
+
+            mainContent.addEventListener('transitionend', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {}, 5000);
+            });
+
+            mainContent.style.opacity = 0;
+            mainContent.style.transform = 'translateY(50px)';
+
+            setTimeout(() => {
+            mainContent.style.transition = 'opacity 1s, transform 1s';
+            mainContent.style.opacity = 1;
+            mainContent.style.transform = 'translateY(0)';
+            }, 100);
+
+            mainContent.addEventListener('transitionend', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {}, 5000);
+            });
+            
+        };
+    </script>
+</html>
