@@ -19,4 +19,4 @@ The repo for the CVC-FTC Robotics Club website
 
 <br>
 
-*Find it at https://cvc-ftc.github.io/CVC-FTC.gitbub.io/*
+*Find it at https://cvc-ftc.github.io/index.html*
