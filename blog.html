@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Manrope', sans-serif;
-            background: linear-gradient(135deg, #e5e7eb, #f8fafc); /* Fallback gradient */
+            background: linear-gradient(135deg, #e5e7eb, #f8fafc);
             color: #1f2937;
             overflow-x: hidden;
         }
@@ -135,36 +135,61 @@
             <div class="blur-circle w-64 h-64 bg-purple-500 bottom-1/3 right-1/4 animation-delay-2000"></div>
             <div class="blur-circle w-56 h-56 bg-cyan-500 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animation-delay-4000"></div>
         </div>
-        <div class="relative z-10 max-w-3xl mx-auto bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg neon-glow">
+        <div class="relative z-10 max-w-6xl w-full bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg neon-glow">
             <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4 text-center">Blog/Memes</h1>
             <hr class="border-blue-500 border-t-4 w-1/4 mx-auto mb-6">
             <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
-    This is where we will share our blog posts and memes created by the Comberton Village College Robotics Club.
-</p>
+                This is where we will share our blog posts and memes created by the Comberton Village College Robotics Club.
+            </p>
 
-<!-- Meme Gallery Placeholder -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <!-- Meme 1 -->
-    <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 neon-glow">
-        <img src="https://via.placeholder.com/400x300?text=Meme+1" alt="Meme 1" class="w-full h-auto">
-        <div class="p-4 text-sm text-gray-600">"Insert witty caption here..."</div>
-    </div>
-    
-    <!-- Meme 2 -->
-    <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 neon-glow">
-        <img src="https://via.placeholder.com/400x300?text=Meme+2" alt="Meme 2" class="w-full h-auto">
-        <div class="p-4 text-sm text-gray-600">"When the robot finally works on the first try."</div>
-    </div>
+            <!-- Blog Posts Section -->
+            <section class="mt-12">
+                <h2 class="text-2xl font-bold text-center gradient-text mb-4">Latest Blog Posts</h2>
+                <div class="space-y-6">
+                    <!-- Blog 1 -->
+                    <article class="bg-white/90 p-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-2">“Why the Robot Worked at 2AM but Not During the Match”</h3>
+                        <p class="text-gray-700 text-sm">We've all been there. It's 2AM, your code is flawless...</p>
+                    </article>
+                    <!-- Blog 2 -->
+                    <article class="bg-white/90 p-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-2">“Inside Team Bob: A Week Before Regionals”</h3>
+                        <p class="text-gray-700 text-sm">Coffee. Cables. Chaos. The week before regionals...</p>
+                    </article>
+                    <!-- Blog 3 -->
+                    <article class="bg-white/90 p-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-2">“Top 5 Robot Design Fails That Taught Us Everything”</h3>
+                        <p class="text-gray-700 text-sm">From arms that snapped mid-demo to a wheel configuration we still can't explain...</p>
+                    </article>
+                    <!-- Add more blogs here -->
+                </div>
+            </section>
 
-    <!-- Meme 3 -->
-    <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 neon-glow">
-        <img src="https://via.placeholder.com/400x300?text=Meme+3" alt="Meme 3" class="w-full h-auto">
-        <div class="p-4 text-sm text-gray-600">"FTC = Fix The Code 😅"</div>
-    </div>
-
-    <!-- More memes can be added below in same structure -->
-</div>
-
+            <!-- Meme Gallery Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+                <!-- Meme 1 -->
+                <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 neon-glow">
+                    <img src="img/memes/self_destruct_robot.jpg" alt="Robot Exploding" class="w-full h-48 object-cover">
+                    <div class="p-4 text-sm text-gray-600 text-center">
+                        Builder: “Careful, this piece is fragile.” Programmer: *uploads code* Robot: *self-destructs*
+                    </div>
+                </div>
+                <!-- Meme 2 -->
+                <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 neon-glow">
+                    <img src="img/memes/robot_worked_at_2am.jpg" alt="2AM Robot" class="w-full h-48 object-cover">
+                    <div class="p-4 text-sm text-gray-600 text-center">
+                        Coach: “Why did the robot stop moving?” Programmer: “It’s not a bug, it’s a feature.” 😎
+                    </div>
+                </div>
+                <!-- Meme 3 -->
+                <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 neon-glow">
+                    <img src="img/memes/robot_before_after_testing.jpg" alt="Before vs After Testing" class="w-full h-48 object-cover">
+                    <div class="p-4 text-sm text-gray-600 text-center">
+                        Before Testing: "We’ve got this." After Testing: *“The arm just fell off.”*
+                    </div>
+                </div>
+                <!-- Add more memes here -->
+            </div>
         </div>
     </main>
 
@@ -184,4 +209,3 @@
     </script>
 </body>
 </html>
-
