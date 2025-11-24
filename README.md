@@ -16,7 +16,8 @@ The repo for the CVC-FTC Robotics Club website
 
 ## Notes
 
-> ⚠️ **Warning:** This website uses Tailwind CSS and some DaisyUI
+> [!WARNING]
+> This website uses Tailwind CSS and some DaisyUI
 
 <br>
 
