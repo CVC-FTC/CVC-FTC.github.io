@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Comberton Village College Robotics Club - Team Bob">
-    <meta name="keywords" content="CVC Robotics, Team Bob, FTC, Comberton Village College, Contact, Sponsorship">
-    <title>Contact Us - CVC FTC</title>
+    <meta name="description" content="Photo and Video Gallery of Comberton Village College Robotics Club - Team Bob">
+    <meta name="keywords" content="CVC Robotics, Team Bob, FTC, Comberton Village College, Gallery, Photos, Videos">
+    <title>Gallery - CVC FTC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
@@ -72,22 +72,6 @@
             width: 100%;
         }
 
-        .btn-primary {
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            transition: all 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-1px);
-        }
-
         /* Subtle background pattern */
         .bg-pattern {
             background-image:
@@ -109,22 +93,43 @@
             border-color: rgba(255, 255, 255, 0.08);
         }
 
-        .info-box {
-            border: 1px solid rgba(0, 0, 0, 0.08);
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 0.75rem;
             transition: all 0.3s ease;
         }
 
-        .dark .info-box {
-            border-color: rgba(255, 255, 255, 0.08);
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
 
-        .info-box:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        .dark .gallery-item:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
         }
 
-        .dark .info-box:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .gallery-item {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
@@ -147,8 +152,8 @@
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Home</a>
                     <a href="about-us.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">About</a>
-                    <a href="contact.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-900 dark:text-gray-100">Contact</a>
-                    <a href="gallery.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Gallery</a>
+                    <a href="contact.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Contact</a>
+                    <a href="gallery.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-900 dark:text-gray-100">Gallery</a>
                     <a href="blog.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Blog</a>
                 </div>
 
@@ -165,8 +170,8 @@
                 <div class="flex flex-col space-y-2">
                     <a href="index.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Home</a>
                     <a href="about-us.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">About</a>
-                    <a href="contact.html" class="px-4 py-2 text-sm font-medium">Contact</a>
-                    <a href="gallery.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Gallery</a>
+                    <a href="contact.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Contact</a>
+                    <a href="gallery.html" class="px-4 py-2 text-sm font-medium">Gallery</a>
                     <a href="blog.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Blog</a>
                 </div>
             </div>
@@ -175,100 +180,57 @@
 
     <!-- Main Content -->
     <main class="min-h-screen px-6 md:px-8 pt-24 pb-20 bg-pattern">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-7xl mx-auto">
 
             <!-- Page Title -->
             <div class="text-center mb-16 fade-in delay-1">
                 <h1 class="font-heading font-bold text-5xl md:text-6xl mb-4 tracking-tight">
-                    Contact Us
+                    Gallery
                 </h1>
                 <div class="w-16 h-0.5 bg-accent mx-auto mb-6"></div>
                 <p class="text-xl text-gray-600 dark:text-gray-400">
-                    Let's Connect and Collaborate
+                    Showcasing Team Bob in Action
                 </p>
             </div>
 
-            <!-- Contact Information Card -->
+            <!-- Photo Gallery -->
             <div class="content-card bg-white dark:bg-gray-900 rounded-xl p-8 md:p-12 mb-12 fade-in delay-2">
-                <div class="text-center mb-12">
-                    <div class="w-16 h-16 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
+                <h2 class="font-heading font-semibold text-3xl mb-8 text-center">Photo Gallery</h2>
+                <div class="gallery-grid grid grid-cols-4 auto-rows-[200px] gap-4 md:gap-6">
+                    <div class="gallery-item col-span-2 row-span-2">
+                        <img src="img/cover.jpeg" class="w-full h-full object-cover" alt="Team Bob robot in action">
                     </div>
-                    <h2 class="font-heading font-semibold text-3xl mb-4">Get in Touch</h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        We'd love to hear from you! Reach out via email or connect with us on social media.
-                    </p>
-                </div>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                    <a href="mailto:susmith@combertonvc.org?subject=Contact%20CVC%20FTC%20Robotics%20Club&body=To%20CVC%20FTC%20Robotics%20Club,%0D%0A%0D%0A"
-                        class="btn-primary px-8 py-3 bg-accent text-white font-medium text-sm rounded-lg inline-flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        Send Email
-                    </a>
-
-                    <a href="https://instagram.com/bob_045_" target="_blank" rel="noopener noreferrer"
-                        class="btn-secondary px-8 py-3 border border-gray-300 dark:border-gray-700 font-medium text-sm rounded-lg hover:border-accent hover:text-accent transition-colors inline-flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        @bob_045_
-                    </a>
-                </div>
-
-                <!-- Contact Details -->
-                <div class="info-box bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 max-w-2xl mx-auto">
-                    <div class="space-y-3 text-sm">
-                        <p class="text-gray-700 dark:text-gray-300">
-                            <strong class="font-semibold text-gray-900 dark:text-gray-100">Email:</strong>
-                            <a href="mailto:susmith@combertonvc.org" class="text-accent hover:underline ml-2">
-                                susmith@combertonvc.org
-                            </a>
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300">
-                            <strong class="font-semibold text-gray-900 dark:text-gray-100">Instagram:</strong>
-                            <a href="https://instagram.com/bob_045_" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline ml-2">
-                                @bob_045_
-                            </a>
-                        </p>
+                    <div class="gallery-item col-span-2 row-span-1">
+                        <img src="img/bob1.jpeg" class="w-full h-full object-cover" alt="Close-up of Team Bob robot">
+                    </div>
+                    <div class="gallery-item col-span-1 row-span-1">
+                        <img src="img/Bob_in_box.jpg" class="w-full h-full object-cover" alt="Team Bob robot in its storage box">
+                    </div>
+                    <div class="gallery-item col-span-1 row-span-2">
+                        <img src="img/Bob-at-regionals-on-inspection-table.JPG" class="w-full h-full object-cover" alt="Team Bob robot on inspection table at regionals">
+                    </div>
+                    <div class="gallery-item col-span-2 row-span-1">
+                        <img src="img/Bob-at-regionals-in-arena.JPG" class="w-full h-full object-cover" alt="Team Bob robot competing in arena at regionals">
+                    </div>
+                    <div class="gallery-item col-span-1 row-span-1">
+                        <img src="img/Bob-at-Scrimmage-on-table.JPG" class="w-full h-full object-cover" alt="Team Bob robot on table at scrimmage">
                     </div>
                 </div>
             </div>
 
-            <!-- Sponsorship Section -->
+            <!-- Video Section -->
             <div class="content-card bg-white dark:bg-gray-900 rounded-xl p-8 md:p-12 fade-in delay-3">
-                <div class="text-center mb-12">
-                    <div class="w-16 h-16 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
+                <h2 class="font-heading font-semibold text-3xl mb-8 text-center">Bob in Action</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative overflow-hidden rounded-xl bg-black">
+                        <video src="vid/bob-in-action.mp4" controls poster="img/bob1.jpeg"
+                            class="w-full h-auto object-cover rounded-xl"
+                            aria-label="Video of Team Bob robot in action">
+                        </video>
                     </div>
-                    <h2 class="font-heading font-semibold text-3xl mb-4">Partnership Opportunities</h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-                        We are currently seeking <strong class="font-semibold text-gray-900 dark:text-gray-100">sponsors</strong> and <strong class="font-semibold text-gray-900 dark:text-gray-100">mentors</strong> to support our robotics journey. Join us in inspiring the next generation of engineers and innovators.
+                    <p class="text-center text-gray-600 dark:text-gray-400 mt-6 text-sm">
+                        Watch the 2024/25 Team Bob Robot in action in our lab.
                     </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                    <div class="info-box bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                        <h3 class="font-heading font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">Sponsorship</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Support our team with funding, equipment, or resources to help us compete at the highest level.
-                        </p>
-                    </div>
-                    <div class="info-box bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                        <h3 class="font-heading font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">Mentorship</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Share your expertise and guide our students in engineering, programming, and professional development.
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
