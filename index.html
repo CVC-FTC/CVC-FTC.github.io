@@ -8,357 +8,238 @@
     <meta name="keywords" content="CVC Robotics, Team Bob, FTC, Comberton Village College">
     <title>CVC FTC</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'heading': ['Archivo', 'sans-serif'],
+                        'body': ['Manrope', 'system-ui', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#5D5CDE',
-                        'primary-dark': '#4C4BCD',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
-                        'slide-up': 'slide-up 0.8s ease-out',
-                        'gradient-shift': 'gradient-shift 8s ease-in-out infinite',
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+                        accent: '#2563eb',
                     }
                 }
             }
         }
     </script>
     <style>
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            33% {
-                transform: translateY(-10px) rotate(1deg);
-            }
-
-            66% {
-                transform: translateY(5px) rotate(-1deg);
-            }
+        * {
+            font-family: 'Manrope', system-ui, sans-serif;
         }
 
-        @keyframes pulse-soft {
-
-            0%,
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 0.3;
-            }
-
-            50% {
-                transform: scale(1.1) rotate(180deg);
-                opacity: 0.6;
-            }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Archivo', sans-serif;
         }
 
-        @keyframes slide-up {
+        @keyframes fade-in {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @keyframes gradient-shift {
-
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
+        .fade-in {
+            animation: fade-in 0.6s ease-out forwards;
         }
 
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .dark .glass-morphism {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg,
-                    rgba(93, 92, 222, 0.1) 0%,
-                    rgba(168, 85, 247, 0.1) 25%,
-                    rgba(59, 130, 246, 0.1) 50%,
-                    rgba(16, 185, 129, 0.1) 75%,
-                    rgba(245, 101, 101, 0.1) 100%);
-            background-size: 400% 400%;
-            animation: gradient-shift 15s ease-in-out infinite;
-        }
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
 
         .nav-link {
             position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: color 0.2s ease;
         }
 
-        .nav-link::before {
+        .nav-link::after {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #5D5CDE, #A855F7);
-            border-radius: 0.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s ease;
         }
 
-        .nav-link:hover::before {
-            opacity: 0.1;
-        }
-
-        .nav-link:hover {
-            transform: translateY(-1px);
-            color: #5D5CDE;
-        }
-
-        .floating-shape {
-            position: absolute;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            filter: blur(40px);
-            opacity: 0.4;
-            animation: float 8s ease-in-out infinite;
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #5D5CDE 0%, #A855F7 100%);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #4C4BCD 0%, #9333EA 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn-primary:hover::before {
-            opacity: 1;
+            transition: all 0.2s ease;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(93, 92, 222, 0.4);
+            transform: translateY(-1px);
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, #5D5CDE 0%, #A855F7 50%, #3B82F6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        .hero-card {
-            backdrop-filter: blur(20px);
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        .dark .card {
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
-        .dark .hero-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .dark .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Subtle background pattern */
+        .bg-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+        }
+
+        .dark .bg-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
         }
     </style>
 </head>
 
-<body class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-    <!-- Animated Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="hero-gradient absolute inset-0"></div>
-        <div class="floating-shape w-72 h-72 bg-gradient-to-r from-purple-400 to-pink-400 top-10 -left-20"
-            style="animation-delay: 0s;"></div>
-        <div class="floating-shape w-96 h-96 bg-gradient-to-r from-blue-400 to-cyan-400 top-1/3 -right-32"
-            style="animation-delay: 2s;"></div>
-        <div class="floating-shape w-64 h-64 bg-gradient-to-r from-green-400 to-blue-500 bottom-20 left-1/4"
-            style="animation-delay: 4s;"></div>
-        <div class="floating-shape w-80 h-80 bg-gradient-to-r from-yellow-400 to-orange-400 bottom-10 -right-20"
-            style="animation-delay: 6s;"></div>
-    </div>
+<body class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
     <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50">
-        <nav class="glass-morphism mx-6 md:mx-8 mt-6 md:mt-8 rounded-3xl">
-            <div class="max-w-7xl mx-auto px-8 md:px-12 py-6 md:py-8">
-                <div class="flex items-center justify-between">
-                    <!-- Logo -->
-                    <a href="index.html" class="flex items-center space-x-3 group" aria-label="CVC Robotics Home">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-gradient-to-r from-primary to-purple-600 p-0.5 group-hover:scale-110 transition-transform duration-300">
-                            <img src="img/logo-modified.png">
-                        </div>
-                        <span class="font-bold text-xl text-gray-900 dark:text-white hidden sm:block">Team Bob</span>
-                    </a>
-
-                    <!-- Desktop Navigation -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <a href="index.html"
-                            class="nav-link px-6 py-3 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Home</a>
-                        <a href="about-us.html"
-                            class="nav-link px-6 py-3 rounded-xl text-gray-700 dark:text-gray-300 font-medium">About
-                            Us</a>
-                        <a href="contact.html"
-                            class="nav-link px-6 py-3 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Contact</a>
-                        <a href="gallery.html"
-                            class="nav-link px-6 py-3 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Gallery</a>
-                        <a href="blog.html"
-                            class="nav-link px-6 py-3 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Blog</a>
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <nav class="max-w-6xl mx-auto px-6 md:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 group" aria-label="CVC Robotics Home">
+                    <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                        <img src="img/logo-modified.png" alt="Team Bob Logo">
                     </div>
+                    <span class="font-heading font-semibold text-lg hidden sm:block">Team Bob</span>
+                </a>
 
-                    <!-- Mobile Menu Button -->
-                    <button id="hamburger-menu" class="md:hidden p-2 rounded-lg glass-morphism" aria-label="Toggle Menu">
-                        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-900 dark:text-gray-100">Home</a>
+                    <a href="about-us.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">About</a>
+                    <a href="contact.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Contact</a>
+                    <a href="gallery.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Gallery</a>
+                    <a href="blog.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Blog</a>
                 </div>
 
-                <!-- Mobile Navigation -->
-                <div id="nav-menu" class="hidden md:hidden mt-8 pt-8 border-t border-white/20">
-                    <div class="flex flex-col space-y-4">
-                        <a href="index.html"
-                            class="nav-link px-6 py-4 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Home</a>
-                        <a href="about-us.html"
-                            class="nav-link px-6 py-4 rounded-xl text-gray-700 dark:text-gray-300 font-medium">About
-                            Us</a>
-                        <a href="contact.html"
-                            class="nav-link px-6 py-4 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Contact</a>
-                        <a href="gallery.html"
-                            class="nav-link px-6 py-4 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Gallery</a>
-                        <a href="blog.html"
-                            class="nav-link px-6 py-4 rounded-xl text-gray-700 dark:text-gray-300 font-medium">Blog</a>
-                    </div>
+                <!-- Mobile Menu Button -->
+                <button id="hamburger-menu" class="md:hidden p-2" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="nav-menu" class="hidden md:hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="px-4 py-2 text-sm font-medium">Home</a>
+                    <a href="about-us.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">About</a>
+                    <a href="contact.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Contact</a>
+                    <a href="gallery.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Gallery</a>
+                    <a href="blog.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Blog</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <main class="min-h-screen flex items-center justify-center px-6 md:px-12 pt-32 md:pt-40 pb-20 md:pb-32">
-        <div class="max-w-6xl mx-auto text-center">
-            <!-- Main Hero Card -->
-            <div class="hero-card rounded-3xl p-12 md:p-20 lg:p-24 mb-16 md:mb-24 animate-slide-up">
-                <div class="mb-16 md:mb-20">
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-gradient mb-8 md:mb-12 leading-tight">
-                        Team Bob
-                    </h1>
-                    <div
-                        class="w-32 md:w-40 h-1.5 bg-gradient-to-r from-primary to-purple-600 mx-auto rounded-full mb-10 md:mb-12">
-                    </div>
-                    <p
-                        class="text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 font-medium mb-4 md:mb-6">
-                        Comberton Village College
-                    </p>
-                    <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-12 md:mb-16">
-                        Robotics Club • Innovation • Excellence
-                    </p>
-                </div>
+    <main class="min-h-screen flex items-center justify-center px-6 md:px-8 pt-24 pb-20 bg-pattern">
+        <div class="max-w-4xl mx-auto text-center">
 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-6 md:gap-8 justify-center items-center">
-                    <a href="about-us.html" class="btn-primary relative px-10 md:px-12 py-5 md:py-6 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 group text-lg">
-                        <span class="relative z-10 flex items-center">
-                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                            About Us
-                        </span>
-                    </a>
+            <!-- Main Content -->
+            <div class="mb-16 fade-in delay-1">
+                <h1 class="font-heading font-bold text-6xl md:text-7xl lg:text-8xl mb-6 tracking-tight">
+                    Team Bob
+                </h1>
+                <div class="w-16 h-0.5 bg-accent mx-auto mb-8"></div>
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light mb-3">
+                    Comberton Village College
+                </p>
+                <p class="text-sm md:text-base text-gray-500 dark:text-gray-500 tracking-wide uppercase">
+                    Robotics Club
+                </p>
+            </div>
 
-                    <a href="gallery.html" class="px-10 md:px-12 py-5 md:py-6 font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 text-lg">
-                        View Gallery
-                    </a>
-                </div>
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 fade-in delay-2">
+                <a href="about-us.html" class="btn-primary px-8 py-3 bg-accent text-white font-medium text-sm rounded-lg">
+                    About Us
+                </a>
+                <a href="gallery.html" class="px-8 py-3 border border-gray-300 dark:border-gray-700 font-medium text-sm rounded-lg hover:border-accent hover:text-accent transition-colors">
+                    View Gallery
+                </a>
             </div>
 
             <!-- Feature Cards -->
-            <div class="grid md:grid-cols-3 gap-8 md:gap-12 animate-slide-up" style="animation-delay: 0.2s;">
-                <div class="glass-morphism rounded-3xl p-10 md:p-12 hover:scale-105 transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-8 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="grid md:grid-cols-3 gap-6 fade-in delay-3">
+                <div class="card bg-white dark:bg-gray-900 rounded-xl p-8">
+                    <div class="w-12 h-12 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">Innovation</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">Pushing boundaries
-                        with cutting-edge robotics solutions and forward-thinking approaches</p>
+                    <h3 class="font-heading font-semibold text-lg mb-3">Innovation</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Pushing boundaries with cutting-edge robotics solutions
+                    </p>
                 </div>
 
-                <div class="glass-morphism rounded-3xl p-10 md:p-12 hover:scale-105 transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-8 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="card bg-white dark:bg-gray-900 rounded-xl p-8">
+                    <div class="w-12 h-12 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">Collaboration</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">Working together as
-                        one unified team to achieve extraordinary results and shared success</p>
+                    <h3 class="font-heading font-semibold text-lg mb-3">Collaboration</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Working together to achieve extraordinary results
+                    </p>
                 </div>
 
-                <div class="glass-morphism rounded-3xl p-10 md:p-12 hover:scale-105 transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="card bg-white dark:bg-gray-900 rounded-xl p-8">
+                    <div class="w-12 h-12 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">Excellence</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">Committed to the
-                        highest standards and continuous improvement in everything we create</p>
+                    <h3 class="font-heading font-semibold text-lg mb-3">Excellence</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Committed to the highest standards in everything we create
+                    </p>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="glass-morphism mx-6 md:mx-8 mb-6 md:mb-8 rounded-3xl mt-20 md:mt-32">
-        <div class="max-w-7xl mx-auto px-8 md:px-12 py-8 md:py-12 text-center">
-            <p class="text-gray-600 dark:text-gray-400 font-medium text-lg">
+    <footer class="border-t border-gray-200 dark:border-gray-800 mt-20">
+        <div class="max-w-6xl mx-auto px-6 md:px-8 py-8 text-center">
+            <p class="text-sm text-gray-500 dark:text-gray-500">
                 © <span id="current-year"></span> CVC Robotics Team Bob. All rights reserved.
             </p>
         </div>
     </footer>
 
     <script>
-        // Dark mode detection and toggle
+        // Dark mode detection
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
         }
@@ -376,7 +257,7 @@
         // Mobile menu toggle
         const hamburger = document.getElementById('hamburger-menu');
         const navMenu = document.getElementById('nav-menu');
-        
+
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('hidden');
         });
@@ -387,16 +268,8 @@
                 navMenu.classList.add('hidden');
             }
         });
-
-        // Smooth scroll and parallax effects
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero-gradient');
-            if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
     </script>
 </body>
 
 </html>
+
