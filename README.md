@@ -1,6 +1,6 @@
 # CVC-FTC.gitbub.io
 
-The repo for the CVC-FTC Robotics Club website
+The repo for the Team Bob CVC-FTC Robotics Club website
 
 ---
 
@@ -10,15 +10,15 @@ The repo for the CVC-FTC Robotics Club website
 * ℹ️ **About Us** - Page with a few paragraghs explaining who CVC-FTC Robotics Club are
 * ☎️ **Contact** - A simple page with "mailto:" button
 * 🏞️ **Gallery** - A page with a couple of photo frames with images of Bob the robot
-* 📝 **Blog/Memes** - A page where we will put are blogs or memes
+* 🎤 **Events** - A page where we will blog all our events
 
 ---
 
 ## Notes
 
 > [!WARNING]
-> This website uses Tailwind CSS and some DaisyUI
+> This website uses Tailwind CSS and some DaisyUI using the Play CDN
 
 <br>
 
-*Find it at https://cvc-ftc.github.io/index.html*
+*Find it at [cvc-ftc.github.io](https://cvc-ftc.github.io)*
