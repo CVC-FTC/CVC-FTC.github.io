@@ -4,16 +4,12 @@
 
 ---
 
-## What it includes
+## Technologies
 
-* 🏠︎ **Homepage** - The homepage with a simple fade and animation; with a big [cover.jpeg](img/cover.jpeg) bg-image
-* ℹ️ **About Us** - Page with a few paragraghs explaining who CVC-FTC Robotics Club are
-* ☎️ **Contact** - A simple page with "mailto:" button
-* 🏞️ **Gallery** - A page with a couple of photo frames with images of Bob the robot
-* 🎤 **Events** - A page where we will blog all our events
+* HTML + CSS
+* JavaScript
+* Tailwind (CDN)
 
-> [!WARNING]
-> This website uses Tailwind CSS and some DaisyUI using the Play CDN
 
 ---
 
