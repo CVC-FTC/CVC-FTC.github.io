@@ -5,37 +5,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="About Comberton Village College Robotics Club - Team Bob">
     <meta name="keywords" content="CVC Robotics, Team Bob, FTC, Comberton Village College, About Us">
-    <title>About Us - CVC FTC</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'heading': ['Archivo', 'sans-serif'],
-                        'body': ['Manrope', 'system-ui', 'sans-serif'],
-                    },
-                    colors: {
-                        accent: '#2563eb',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>About Us — CVC FTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f0ece4;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --terracotta: #c9684a;
+            --gold: #d4a853;
+            --card-bg: #ffffff;
+            --border: rgba(0,0,0,0.08);
+        }
+
+        .dark {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --accent: #60a5fa;
+            --accent-light: #93c5fd;
+            --terracotta: #e88a6c;
+            --gold: #f0c060;
+            --card-bg: #1f1f1f;
+            --border: rgba(255,255,255,0.08);
+        }
+
         * {
-            font-family: 'Manrope', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
         }
 
-        @keyframes fade-in {
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: var(--bg-primary);
+            box-shadow: 0 2px 40px rgba(0,0,0,0.06);
+            padding: 1rem 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background-color: #faf9f7;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .dark .mobile-menu {
+            background-color: #0f0f0f;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, var(--accent) 0%, transparent 70%);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            animation: fadeUp 1s ease forwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -43,172 +221,325 @@
             }
         }
 
-        .fade-in {
-            animation: fade-in 0.6s ease-out forwards;
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .delay-2 { animation-delay: 0.2s; opacity: 0; }
-
-        .nav-link {
-            position: relative;
-            transition: color 0.2s ease;
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: currentColor;
-            transition: width 0.3s ease;
+        .hero h1 em {
+            font-style: italic;
+            color: var(--terracotta);
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
         }
 
-        /* Subtle background pattern */
-        .bg-pattern {
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
-        }
-
-        .dark .bg-pattern {
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
+        /* Content Section */
+        .content-section {
+            padding: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .content-card {
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin-bottom: 2rem;
         }
 
-        .dark .content-card {
-            border-color: rgba(255, 255, 255, 0.08);
+        .content-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-card strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Achievements Grid */
+        .achievements-section {
+            padding: 4rem;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 0.9rem;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .achievement-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .achievement-card:hover::before {
+            height: 100%;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .achievement-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-card .year {
+            font-size: 0.75rem;
+            color: var(--terracotta);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Fade Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .hero {
+                padding: 6rem 2rem 3rem;
+            }
+
+            .content-section,
+            .achievements-section {
+                padding: 3rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body>
+    <nav id="navbar">
+        <a href="index.html" class="logo" aria-label="CVC Robotics Home">
+            <img src="img/logo-modified.png" alt="Team Bob Logo">
+            <span class="logo-text">Team Bob</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="events.html">Events</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger-menu" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-    <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-        <nav class="max-w-6xl mx-auto px-6 md:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-2 group" aria-label="CVC Robotics Home">
-                    <img class="w-10 h-10 rounded-lg hover:scale-105 transition-transform duration-200" src="img/logo-modified.png" alt="Team Bob Logo">
-                    <span class="font-heading font-semibold text-lg hidden sm:block">Team Bob</span>
-                </a>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about-us.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="events.html">Events</a>
+    </div>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Home</a>
-                    <a href="about-us.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-900 dark:text-gray-100">About</a>
-                    <a href="contact.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Contact</a>
-                    <a href="gallery.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Gallery</a>
-                    <a href="events.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Events</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="hamburger-menu" class="md:hidden p-2" aria-label="Toggle Menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Navigation -->
-            <div id="nav-menu" class="hidden md:hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                <div class="flex flex-col space-y-2">
-                    <a href="index.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Home</a>
-                    <a href="about-us.html" class="px-4 py-2 text-sm font-medium">About</a>
-                    <a href="contact.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Contact</a>
-                    <a href="gallery.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Gallery</a>
-                    <a href="events.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Events</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="min-h-screen flex items-center justify-center px-6 md:px-8 pt-24 pb-20 bg-pattern">
-        <div class="max-w-3xl mx-auto w-full">
-
-            <!-- Page Title -->
-            <div class="text-center mb-12 fade-in delay-1">
-                <h1 class="font-heading font-bold text-5xl md:text-6xl mb-4 tracking-tight">
-                    About Us
-                </h1>
-                <div class="w-16 h-0.5 bg-accent mx-auto"></div>
-            </div>
-
-            <!-- Content Card -->
-            <div class="content-card bg-white dark:bg-gray-900 rounded-xl p-8 md:p-12 fade-in delay-2">
-                <div class="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
-                    <p>
-                        We are a robotics club based at <strong class="font-semibold text-gray-900 dark:text-gray-100">Comberton Village College</strong> in Cambridgeshire, UK. Since 2018, we have competed in the FIRST Tech Challenge in the UK, achieving various degrees of success.
-                    </p>
-
-                    <p>
-                        In the <strong class="font-semibold text-gray-900 dark:text-gray-100">2019/20 season</strong>, we won the Inspire Award, which would have qualified us for nationals, but the event was canceled due to COVID-19.
-                    </p>
-
-                    <p>
-                        Last season <strong class="font-semibold text-gray-900 dark:text-gray-100">(2024/25)</strong>, we advanced to the Nationals with a Wild Card and competed at the CopperBox Arena in the Olympic Park, London.
-                    </p>
-                </div>
-
-                <!-- Achievement Highlights -->
-                <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-                    <h2 class="font-heading font-semibold text-2xl mb-6 text-gray-900 dark:text-gray-100">
-                        Key Achievements
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
-                            <div>
-                                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Inspire Award Winner</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">2019/20 Season</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
-                            <div>
-                                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">National Finalist</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">2024/25 Season</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
-                            <div>
-                                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Competing Since</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">2018</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
-                            <div>
-                                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Wild Card Qualifier</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">CopperBox Arena, London</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Our Story</span>
+            <h1>About <em>Us</em></h1>
+            <p>Building robots, building futures since 2018</p>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-200 dark:border-gray-800 mt-20">
-        <div class="max-w-6xl mx-auto px-6 md:px-8 py-8 text-center">
-            <p class="text-sm text-gray-500 dark:text-gray-500">
-                © <span id="current-year"></span> CVC Robotics Team Bob. All rights reserved.
+    <!-- Content -->
+    <section class="content-section">
+        <div class="content-card fade-in">
+            <p>
+                We are a robotics club based at <strong>Comberton Village College</strong> in Cambridgeshire, UK. Since 2018, we have competed in the FIRST Tech Challenge in the UK, achieving various degrees of success.
+            </p>
+            <p>
+                In the <strong>2019/20 season</strong>, we won the Inspire Award, which would have qualified us for nationals, but the event was canceled due to COVID-19.
+            </p>
+            <p>
+                Last season <strong>(2024/25)</strong>, we advanced to the Nationals with a Wild Card and competed at the CopperBox Arena in the Olympic Park, London.
             </p>
         </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements-section">
+        <div class="section-header fade-in">
+            <span class="section-number">02</span>
+            <h2>Key Achievements</h2>
+            <p>Milestones on our robotics journey</p>
+        </div>
+        <div class="achievements-grid">
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3>Inspire Award Winner</h3>
+                <span class="year">2019/20 Season</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <h3>National Finalist</h3>
+                <span class="year">2024/25 Season</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-calendar"></i>
+                </div>
+                <h3>Competing Since</h3>
+                <span class="year">2018</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <h3>Wild Card Qualifier</h3>
+                <span class="year">CopperBox Arena, London</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">CVC Robotics</div>
+        <p class="footer-text">© <span id="current-year"></span> Team Bob. All rights reserved.</p>
     </footer>
 
     <script>
@@ -227,22 +558,50 @@
         // Current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         // Mobile menu toggle
         const hamburger = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.add('hidden');
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
             }
+        });
+
+        // Fade in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
 </html>
-
-
