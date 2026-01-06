@@ -1,42 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact Comberton Village College Robotics Club - Team Bob">
     <meta name="keywords" content="CVC Robotics, Team Bob, FTC, Comberton Village College, Contact, Sponsorship">
-    <title>Contact Us - CVC FTC</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'heading': ['Archivo', 'sans-serif'],
-                        'body': ['Manrope', 'system-ui', 'sans-serif'],
-                    },
-                    colors: {
-                        accent: '#2563eb',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Contact Us — CVC FTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f0ece4;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --terracotta: #c9684a;
+            --gold: #d4a853;
+            --card-bg: #ffffff;
+            --border: rgba(0,0,0,0.08);
+        }
+
+        .dark {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --accent: #60a5fa;
+            --accent-light: #93c5fd;
+            --terracotta: #e88a6c;
+            --gold: #f0c060;
+            --card-bg: #1f1f1f;
+            --border: rgba(255,255,255,0.08);
+        }
+
         * {
-            font-family: 'Manrope', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
         }
 
-        @keyframes fade-in {
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: var(--bg-primary);
+            box-shadow: 0 2px 40px rgba(0,0,0,0.06);
+            padding: 1rem 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background-color: #faf9f7;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .dark .mobile-menu {
+            background-color: #0f0f0f;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, var(--accent) 0%, transparent 70%);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            animation: fadeUp 1s ease forwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -44,241 +221,371 @@
             }
         }
 
-        .fade-in {
-            animation: fade-in 0.6s ease-out forwards;
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .delay-2 { animation-delay: 0.2s; opacity: 0; }
-        .delay-3 { animation-delay: 0.3s; opacity: 0; }
-
-        .nav-link {
-            position: relative;
-            transition: color 0.2s ease;
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: currentColor;
-            transition: width 0.3s ease;
+        .hero h1 em {
+            font-style: italic;
+            color: var(--terracotta);
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
         }
 
-        .btn-primary {
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            transition: all 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-1px);
-        }
-
-        /* Subtle background pattern */
-        .bg-pattern {
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
-        }
-
-        .dark .bg-pattern {
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
+        /* Content Sections */
+        .content-section {
+            padding: 2rem 4rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .content-card {
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
-        .dark .content-card {
-            border-color: rgba(255, 255, 255, 0.08);
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: var(--accent);
         }
 
-        .info-box {
-            border: 1px solid rgba(0, 0, 0, 0.08);
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card > p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        /* CTA Buttons */
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-radius: 3rem;
             transition: all 0.3s ease;
         }
 
-        .dark .info-box {
-            border-color: rgba(255, 255, 255, 0.08);
-        }
-
-        .info-box:hover {
+        .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
 
-        .dark .info-box:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        .cta-btn i {
+            font-size: 1rem;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .cta-btn.secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--bg-secondary);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .info-box p {
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .info-box a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Partnership Grid */
+        .partnership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .partnership-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partnership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .partnership-card:hover::before {
+            height: 100%;
+        }
+
+        .partnership-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .partnership-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .partnership-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Fade Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .hero {
+                padding: 6rem 2rem 3rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+
+            .partnership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
         }
     </style>
 </head>
+<body>
+    <nav id="navbar">
+        <a href="index.html" class="logo" aria-label="CVC Robotics Home">
+            <img src="img/logo-modified.png" alt="Team Bob Logo">
+            <span class="logo-text">Team Bob</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="events.html">Events</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger-menu" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-<body class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="events.html">Events</a>
+    </div>
 
-    <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-        <nav class="max-w-6xl mx-auto px-6 md:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-2 group" aria-label="CVC Robotics Home">
-                    <img class="w-10 h-10 rounded-lg hover:scale-105 transition-transform duration-200" src="img/logo-modified.png" alt="Team Bob Logo">
-                    <span class="font-heading font-semibold text-lg hidden sm:block">Team Bob</span>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Get In Touch</span>
+            <h1>Contact <em>Us</em></h1>
+            <p>Let's connect and collaborate</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-section">
+        <div class="content-card fade-in">
+            <div class="card-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h2>Reach Out</h2>
+            <p>We'd love to hear from you! Reach out via email or connect with us on social media.</p>
+
+            <div class="cta-group">
+                <a href="mailto:susmith@combertonvc.org?subject=Contact%20CVC%20FTC%20Robotics%20Club&body=To%20CVC%20FTC%20Robotics%20Club,%0D%0A%0D%0A" class="cta-btn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Send Email
                 </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Home</a>
-                    <a href="about-us.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">About</a>
-                    <a href="contact.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-900 dark:text-gray-100">Contact</a>
-                    <a href="gallery.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Gallery</a>
-                    <a href="events.html" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Events</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="hamburger-menu" class="md:hidden p-2" aria-label="Toggle Menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                <a href="https://instagram.com/bob_045_" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+                    <i class="fa-brands fa-instagram"></i>
+                    @bob_045_
+                </a>
             </div>
 
-            <!-- Mobile Navigation -->
-            <div id="nav-menu" class="hidden md:hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                <div class="flex flex-col space-y-2">
-                    <a href="index.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Home</a>
-                    <a href="about-us.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">About</a>
-                    <a href="contact.html" class="px-4 py-2 text-sm font-medium">Contact</a>
-                    <a href="gallery.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Gallery</a>
-                    <a href="events.html" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400">Events</a>
-                </div>
+            <div class="info-box">
+                <p><strong>Email:</strong> <a href="mailto:susmith@combertonvc.org">susmith@combertonvc.org</a></p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/bob_045_" target="_blank" rel="noopener noreferrer">@bob_045_</a></p>
             </div>
-        </nav>
-    </header>
+        </div>
 
-    <!-- Main Content -->
-    <main class="min-h-screen px-6 md:px-8 pt-24 pb-20 bg-pattern">
-        <div class="max-w-4xl mx-auto">
-
-            <!-- Page Title -->
-            <div class="text-center mb-16 fade-in delay-1">
-                <h1 class="font-heading font-bold text-5xl md:text-6xl mb-4 tracking-tight">
-                    Contact Us
-                </h1>
-                <div class="w-16 h-0.5 bg-accent mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600 dark:text-gray-400">
-                    Let's Connect and Collaborate
-                </p>
+        <div class="content-card fade-in">
+            <div class="card-icon">
+                <i class="fa-solid fa-handshake"></i>
             </div>
+            <h2>Partnership Opportunities</h2>
+            <p>We are seeking sponsors and mentors to support our robotics journey. Join us in inspiring the next generation of engineers.</p>
 
-            <!-- Contact Information Card -->
-            <div class="content-card bg-white dark:bg-gray-900 rounded-xl p-8 md:p-12 mb-12 fade-in delay-2">
-                <div class="text-center mb-12">
-                    <div class="w-16 h-16 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h2 class="font-heading font-semibold text-3xl mb-4">Get in Touch</h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        We'd love to hear from you! Reach out via email or connect with us on social media.
-                    </p>
+            <div class="partnership-grid">
+                <div class="partnership-card">
+                    <h3>Sponsorship</h3>
+                    <p>Support our team with funding, equipment, or resources to help us compete at the highest level.</p>
                 </div>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                    <a href="mailto:susmith@combertonvc.org?subject=Contact%20CVC%20FTC%20Robotics%20Club&body=To%20CVC%20FTC%20Robotics%20Club,%0D%0A%0D%0A"
-                        class="btn-primary px-8 py-3 bg-accent text-white font-medium text-sm rounded-lg inline-flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        Send Email
-                    </a>
-
-                    <a href="https://instagram.com/bob_045_" target="_blank" rel="noopener noreferrer"
-                        class="btn-secondary px-8 py-3 border border-gray-300 dark:border-gray-700 font-medium text-sm rounded-lg hover:border-accent hover:text-accent transition-colors inline-flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        @bob_045_
-                    </a>
-                </div>
-
-                <!-- Contact Details -->
-                <div class="info-box bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 max-w-2xl mx-auto">
-                    <div class="space-y-3 text-sm">
-                        <p class="text-gray-700 dark:text-gray-300">
-                            <strong class="font-semibold text-gray-900 dark:text-gray-100">Email:</strong>
-                            <a href="mailto:susmith@combertonvc.org" class="text-accent hover:underline ml-2">
-                                susmith@combertonvc.org
-                            </a>
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300">
-                            <strong class="font-semibold text-gray-900 dark:text-gray-100">Instagram:</strong>
-                            <a href="https://instagram.com/bob_045_" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline ml-2">
-                                @bob_045_
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sponsorship Section -->
-            <div class="content-card bg-white dark:bg-gray-900 rounded-xl p-8 md:p-12 fade-in delay-3">
-                <div class="text-center mb-12">
-                    <div class="w-16 h-16 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                    </div>
-                    <h2 class="font-heading font-semibold text-3xl mb-4">Partnership Opportunities</h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-                        We are currently seeking <strong class="font-semibold text-gray-900 dark:text-gray-100">sponsors</strong> and <strong class="font-semibold text-gray-900 dark:text-gray-100">mentors</strong> to support our robotics journey. Join us in inspiring the next generation of engineers and innovators.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                    <div class="info-box bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                        <h3 class="font-heading font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">Sponsorship</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Support our team with funding, equipment, or resources to help us compete at the highest level.
-                        </p>
-                    </div>
-                    <div class="info-box bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                        <h3 class="font-heading font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">Mentorship</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Share your expertise and guide our students in engineering, programming, and professional development.
-                        </p>
-                    </div>
+                <div class="partnership-card">
+                    <h3>Mentorship</h3>
+                    <p>Share your expertise and guide our students in engineering, programming, and professional development.</p>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-200 dark:border-gray-800 mt-20">
-        <div class="max-w-6xl mx-auto px-6 md:px-8 py-8 text-center">
-            <p class="text-sm text-gray-500 dark:text-gray-500">
-                © <span id="current-year"></span> CVC Robotics Team Bob. All rights reserved.
-            </p>
-        </div>
+    <footer>
+        <div class="footer-logo">CVC Robotics</div>
+        <p class="footer-text">© <span id="current-year"></span> Team Bob. All rights reserved.</p>
     </footer>
 
     <script>
@@ -297,21 +604,50 @@
         // Current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         // Mobile menu toggle
         const hamburger = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.add('hidden');
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
             }
+        });
+
+        // Fade in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
-
 </html>
