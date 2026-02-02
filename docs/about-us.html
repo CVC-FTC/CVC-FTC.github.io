@@ -375,6 +375,89 @@
             text-transform: uppercase;
         }
 
+        /* Sponsor Section */
+        .sponsor-section {
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+            text-align: center;
+        }
+
+        .sponsor-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .sponsor-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .sponsor-label::before,
+        .sponsor-label::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .sponsor-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 2rem 2.5rem;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sponsor-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.06), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .dark .sponsor-card::before {
+            background: radial-gradient(circle at 50% 0%, rgba(96, 165, 250, 0.1), transparent 70%);
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .dark .sponsor-card:hover {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .sponsor-card:hover::before {
+            opacity: 1;
+        }
+
+        .sponsor-logo {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+
+        .sponsor-card:hover .sponsor-logo {
+            transform: scale(1.03);
+        }
+
         /* Fade Animations */
         .fade-in {
             opacity: 0;
@@ -441,6 +524,18 @@
 
             .achievements-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .sponsor-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .sponsor-card {
+                padding: 1.5rem 2rem;
+            }
+
+            .sponsor-logo {
+                max-width: 160px;
             }
         }
     </style>
@@ -529,6 +624,18 @@
         </div>
     </section>
 
+    <!-- Sponsor Section -->
+    <section class="sponsor-section">
+        <div class="sponsor-container fade-in">
+            <div class="sponsor-label">
+                Sponsored by
+            </div>
+            <div class="sponsor-card">
+                <img src="img/friends-of-cvc-tf.png" alt="Friends of CVC-TF" class="sponsor-logo">
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-logo">CVC Robotics</div>
@@ -598,6 +705,3 @@
     </script>
 </body>
 </html>
-
-
-
